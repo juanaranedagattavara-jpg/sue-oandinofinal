@@ -1,0 +1,39 @@
+{
+  "name": "sueño-andino",
+  "version": "1.0.0",
+  "description": "Proyecto completo de Sueño Andino - HTML estático y tema WordPress",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "start-php": "php -S localhost:8000",
+    "build": "echo 'No build process needed for static HTML'",
+    "test": "echo 'No tests configured'",
+    "serve": "python -m http.server 3000"
+  },
+  "keywords": [
+    "sueño-andino",
+    "wordpress",
+    "gutenberg",
+    "html",
+    "css",
+    "javascript",
+    "responsive",
+    "seo"
+  ],
+  "author": "Sueño Andino",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juanaranedagattavara-jpg/sue-oandino.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juanaranedagattavara-jpg/sue-oandino/issues"
+  },
+  "homepage": "https://sueñoandino.com",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

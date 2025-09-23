@@ -1,0 +1,61 @@
+{
+  "apiVersion": 3,
+  "title": "Servicios",
+  "name": "sueño-andino/servicios-block",
+  "category": "sueño-andino",
+  "icon": "admin-tools",
+  "description": "Sección de servicios con tarjetas personalizables",
+  "keywords": ["servicios", "tarjetas", "ofrecemos"],
+  "version": "1.0.0",
+  "textdomain": "sueño-andino",
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Soluciones Especializadas"
+    },
+    "description": {
+      "type": "string",
+      "default": "Desarrollamos programas integrales que combinan metodologías probadas con innovación constante."
+    },
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Para Personas",
+          "description": "Programas de educación básica y técnica, capacitación en emprendimiento, desarrollo de habilidades digitales y apoyo psicosocial.",
+          "icon": "dashicons-admin-users"
+        },
+        {
+          "title": "Para Empresas",
+          "description": "Consultoría en responsabilidad social, programas de desarrollo comunitario, capacitación de personal local y proyectos de impacto social.",
+          "icon": "dashicons-building"
+        },
+        {
+          "title": "Para Gobiernos",
+          "description": "Políticas públicas de desarrollo, programas de inclusión social, capacitación de funcionarios y evaluación de impacto social.",
+          "icon": "dashicons-admin-site"
+        }
+      ]
+    },
+    "ctaTitle": {
+      "type": "string",
+      "default": "¿Listo para transformar tu organización?"
+    },
+    "ctaDescription": {
+      "type": "string",
+      "default": "Descubre cómo nuestros servicios pueden impulsar el desarrollo regenerativo en tu comunidad o empresa."
+    },
+    "ctaButtonText": {
+      "type": "string",
+      "default": "Agendar Consulta"
+    }
+  }
+}
