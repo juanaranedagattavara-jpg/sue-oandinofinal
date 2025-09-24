@@ -1,5 +1,5 @@
 {
-  "nav": ["Servicios", "Nosotros", "Nuestra Historia", "Casos de Éxito", "Contacto"],
+  "nav": ["Servicios", "Nosotros", "Contacto", "Blog"],
   "hero": {
     "title": "DESARROLLO TERRITORIAL REGENERATIVO DESDE Y HACIA LATINOAMÉRICA",
     "desc": "Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa.",
@@ -25,6 +25,23 @@
   "services": {
     "title": "Transformamos Comunidades",
     "items": ["Educación Regenerativa", "Emprendimiento Social", "Consultoría Territorial"]
+  },
+  "team": {
+    "title": "Nuestro Equipo",
+    "subtitle": "Conoce a las personas que hacen posible nuestro impacto",
+    "directorio": [
+      {"name": "María Elena Quispe", "title": "Directora Ejecutiva", "initials": "MQ"},
+      {"name": "Carlos Mamani", "title": "Director de Programas", "initials": "CM"},
+      {"name": "Ana Condori", "title": "Coordinadora de Educación", "initials": "AC"},
+      {"name": "Roberto Huamán", "title": "Especialista en Desarrollo Territorial", "initials": "RH"},
+      {"name": "Lucía Vargas", "title": "Coordinadora de Comunidades", "initials": "LV"},
+      {"name": "Diego Paredes", "title": "Director de Finanzas", "initials": "DP"}
+    ],
+    "equipo": [
+      {"name": "Sofia Mendoza", "title": "Coordinadora de Proyectos", "initials": "SM"},
+      {"name": "Miguel Torres", "title": "Facilitador Comunitario", "initials": "MT"},
+      {"name": "Elena Rojas", "title": "Especialista en Sostenibilidad", "initials": "ER"}
+    ]
   },
   "cases": {
     "title": "Impacto Real",

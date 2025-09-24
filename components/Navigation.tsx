@@ -13,18 +13,54 @@ interface NavigationProps {
  * @param onItemClick - Callback para cerrar menú móvil
  */
 export default function Navigation({ isMobile = false, onItemClick }: NavigationProps) {
-  const navItems = homeData.nav.map((item, index) => (
-    <a
-      key={index}
-      href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-      className={`text-sa-ink hover:text-sa-primary transition-colors font-medium ${
-        isMobile ? 'py-2' : ''
-      }`}
-      onClick={onItemClick}
-    >
-      {item}
-    </a>
-  ))
+  // Mapeo específico de enlaces
+  const getHref = (item: string) => {
+    switch (item) {
+      case 'Servicios':
+        return '#servicios'
+      case 'Nosotros':
+        return '#equipo' // Nosotros lleva a la sección de equipo
+      case 'Contacto':
+        return '#contacto'
+      case 'Blog':
+        return '/blog' // Blog será una página separada
+      default:
+        return '#'
+    }
+  }
+
+  const navItems = homeData.nav.map((item, index) => {
+    const href = getHref(item)
+    const isExternal = href.startsWith('/')
+    
+    if (isExternal) {
+      return (
+        <Link
+          key={index}
+          href={href}
+          className={`text-sa-ink hover:text-sa-primary transition-colors font-medium ${
+            isMobile ? 'py-2' : ''
+          }`}
+          onClick={onItemClick}
+        >
+          {item}
+        </Link>
+      )
+    }
+    
+    return (
+      <a
+        key={index}
+        href={href}
+        className={`text-sa-ink hover:text-sa-primary transition-colors font-medium ${
+          isMobile ? 'py-2' : ''
+        }`}
+        onClick={onItemClick}
+      >
+        {item}
+      </a>
+    )
+  })
 
   const ctaButton = (
     <Link href="/guide" onClick={onItemClick}>
