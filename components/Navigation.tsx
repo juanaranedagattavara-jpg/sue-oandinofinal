@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Button from './Button'
-import homeData from '../content/home.json'
 
 interface NavigationProps {
   isMobile?: boolean
@@ -13,37 +12,28 @@ interface NavigationProps {
  * @param onItemClick - Callback para cerrar menú móvil
  */
 export default function Navigation({ isMobile = false, onItemClick }: NavigationProps) {
-  // Mapeo específico de enlaces
-  const getHref = (item: string) => {
-    switch (item) {
-      case 'Servicios':
-        return '#servicios'
-      case 'Nosotros':
-        return '#equipo' // Nosotros lleva a la sección de equipo
-      case 'Contacto':
-        return '#contacto'
-      case 'Blog':
-        return '/blog' // Blog será una página separada
-      default:
-        return '#'
-    }
-  }
+  // Navegación estática para evitar problemas de hidratación
+  const navItems = [
+    { name: 'Servicios', href: '#servicios' },
+    { name: 'Nosotros', href: '#equipo' },
+    { name: 'Contacto', href: '#contacto' },
+    { name: 'Blog', href: '/blog' }
+  ]
 
-  const navItems = homeData.nav.map((item, index) => {
-    const href = getHref(item)
-    const isExternal = href.startsWith('/')
+  const navElements = navItems.map((item, index) => {
+    const isExternal = item.href.startsWith('/')
     
     if (isExternal) {
       return (
         <Link
           key={index}
-          href={href}
+          href={item.href}
           className={`text-sa-ink hover:text-sa-primary transition-colors font-medium ${
             isMobile ? 'py-2' : ''
           }`}
           onClick={onItemClick}
         >
-          {item}
+          {item.name}
         </Link>
       )
     }
@@ -51,13 +41,13 @@ export default function Navigation({ isMobile = false, onItemClick }: Navigation
     return (
       <a
         key={index}
-        href={href}
+        href={item.href}
         className={`text-sa-ink hover:text-sa-primary transition-colors font-medium ${
           isMobile ? 'py-2' : ''
         }`}
         onClick={onItemClick}
       >
-        {item}
+        {item.name}
       </a>
     )
   })
@@ -68,7 +58,7 @@ export default function Navigation({ isMobile = false, onItemClick }: Navigation
         variant="secondary"
         className={isMobile ? 'w-full text-center' : ''}
       >
-        {homeData.hero.ctaSecondary}
+        Descarga Guía Gratuita
       </Button>
     </Link>
   )
@@ -76,7 +66,7 @@ export default function Navigation({ isMobile = false, onItemClick }: Navigation
   if (isMobile) {
     return (
       <nav className="flex flex-col space-y-4">
-        {navItems}
+        {navElements}
         {ctaButton}
       </nav>
     )
@@ -84,7 +74,7 @@ export default function Navigation({ isMobile = false, onItemClick }: Navigation
 
   return (
     <nav className="flex items-center space-x-8">
-      {navItems}
+      {navElements}
       {ctaButton}
     </nav>
   )
