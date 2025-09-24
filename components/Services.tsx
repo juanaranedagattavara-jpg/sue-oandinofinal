@@ -1,4 +1,5 @@
 import Container from './Container'
+import Button from './Button'
 import homeData from '../content/home.json'
 
 const serviceIcons = {
@@ -28,9 +29,16 @@ export default function Services() {
             <h2 className="text-3xl md:text-4xl font-bold text-sa-ink mb-6">
               {homeData.services.title}
             </h2>
+            <div className="bg-white rounded-2xl p-6 shadow-md max-w-4xl mx-auto">
+              <p className="text-lg text-sa-ink/80 leading-relaxed">
+                Nuestros servicios están diseñados para generar impacto real en las comunidades andinas, 
+                combinando sabiduría ancestral con metodologías modernas de desarrollo territorial regenerativo. 
+                Cada programa está adaptado a las necesidades específicas de cada territorio y comunidad.
+              </p>
+            </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {homeData.services.items.map((service, index) => (
               <div key={index} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
                 <div className="flex justify-center mb-6">
@@ -44,6 +52,23 @@ export default function Services() {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <div className="bg-sa-primary rounded-2xl p-8 text-white max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">
+                ¿Listo para transformar tu territorio?
+              </h3>
+              <p className="text-white/90 mb-6">
+                Descubre cómo nuestros servicios pueden generar impacto real en tu comunidad
+              </p>
+              <a href="#contacto">
+                <Button variant="secondary" size="lg" className="bg-white text-sa-primary hover:bg-sa-cloud">
+                  Conoce Más
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </Container>
