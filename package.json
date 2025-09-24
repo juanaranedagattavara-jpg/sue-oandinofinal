@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "qa": "node scripts/qa-express.js",
+    "qa:full": "npm run build && npm run lint && npm run qa"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

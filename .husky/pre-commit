@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Ejecutando verificaciones pre-commit..."
+
+# Verificar que no hay errores de linting
+echo "📝 Verificando linting..."
+npm run lint
+if [ $? -ne 0 ]; then
+    echo "❌ Linting falló. Corrige los errores antes de hacer commit."
+    exit 1
+fi
+
+# Verificar que el build funciona
+echo "🏗️ Verificando build..."
+npm run build
+if [ $? -ne 0 ]; then
+    echo "❌ Build falló. Corrige los errores antes de hacer commit."
+    exit 1
+fi
+
+echo "✅ Todas las verificaciones pasaron. Procediendo con el commit..."

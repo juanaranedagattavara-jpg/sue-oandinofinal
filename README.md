@@ -70,7 +70,35 @@ npm run build
 
 # Iniciar servidor de producción
 npm start
+
+# QA Express (verificación completa)
+npm run qa
+
+# QA completo (build + lint + qa)
+npm run qa:full
 ```
+
+## 🚀 Reglas del Proyecto
+
+Este proyecto sigue las **Reglas de Productividad Worldclass** definidas en `PROJECT-RULES.md`:
+
+### 🔀 Flujo de Ramas & Commits
+- **Ramas**: `main` (estable) → `feat/mvp-landing` (desarrollo)
+- **Commits**: Convención Conventional Commits (`feat:`, `fix:`, `style:`, etc.)
+- **Regla de oro**: 1 commit = 1 aporte claro y testeado
+
+### ⏱️ Sprints Pomodoro
+- **Bloques**: 50 min (40' construcción + 10' pruebas & commit)
+- **Orden fijo**: Layout → Header → Hero → Stats → About → Services → Cases → Contact → Footer → QA
+
+### 🏁 Definición de Hecho (DoD)
+Una feature está terminada solo si cumple:
+- [ ] Responsive (sm, md, lg, 2xl)
+- [ ] Accesible (contraste AA+, ARIA labels)
+- [ ] Desacoplado (textos en `content/home.json`)
+- [ ] Optimizado (build sin errores)
+- [ ] Validado (formulario probado)
+- [ ] Medido (Lighthouse ≥ 95)
 
 ## 📝 Edición de Contenido
 
