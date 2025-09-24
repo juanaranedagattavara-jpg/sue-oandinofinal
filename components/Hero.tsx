@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Container from './Container'
+import Button from './Button'
 import homeData from '../content/home.json'
 
 export default function Hero() {
@@ -16,17 +17,15 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <a
-              href="#servicios"
-              className="btn-primary text-lg px-8 py-4"
-            >
-              {homeData.hero.ctaPrimary}
+            <a href="#servicios">
+              <Button variant="primary" size="lg">
+                {homeData.hero.ctaPrimary}
+              </Button>
             </a>
-            <Link
-              href="/guide"
-              className="btn-secondary text-lg px-8 py-4"
-            >
-              {homeData.hero.ctaSecondary}
+            <Link href="/guide">
+              <Button variant="secondary" size="lg">
+                {homeData.hero.ctaSecondary}
+              </Button>
             </Link>
           </div>
           

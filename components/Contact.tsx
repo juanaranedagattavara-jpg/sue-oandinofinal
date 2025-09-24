@@ -1,53 +1,23 @@
 'use client'
 
-import { useState } from 'react'
 import Container from './Container'
+import Button from './Button'
+import Icon from './Icon'
+import { useContactForm } from '../hooks/useContactForm'
 import homeData from '../content/home.json'
 
+/**
+ * Componente de contacto con formulario y información
+ * Incluye validación, manejo de estados y feedback visual
+ */
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('loading')
-    setErrorMessage('')
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', message: '' })
-      } else {
-        setStatus('error')
-        setErrorMessage(data.error || 'Error al enviar el mensaje')
-      }
-    } catch (error) {
-      setStatus('error')
-      setErrorMessage('Error de conexión. Intenta nuevamente.')
-    }
-  }
+  const {
+    formData,
+    status,
+    errorMessage,
+    handleChange,
+    handleSubmit
+  } = useContactForm()
 
   return (
     <section id="contacto" className="bg-sa-primary text-white section-padding">
@@ -66,10 +36,7 @@ export default function Contact() {
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+                    <Icon name="location" className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-semibold">Ubicación</div>
@@ -79,9 +46,7 @@ export default function Contact() {
                 
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
+                    <Icon name="phone" className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-semibold">Teléfono</div>
@@ -91,9 +56,7 @@ export default function Contact() {
                 
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+                    <Icon name="email" className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-semibold">Email</div>
@@ -166,13 +129,14 @@ export default function Contact() {
                   </div>
                 )}
                 
-                <button
+                <Button
                   type="submit"
+                  variant="primary"
                   disabled={status === 'loading'}
-                  className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full"
                 >
                   {status === 'loading' ? 'Enviando...' : 'Enviar Mensaje'}
-                </button>
+                </Button>
               </form>
             </div>
           </div>
