@@ -1,0 +1,45 @@
+{
+  "nav": ["Servicios", "Nosotros", "Casos de Éxito", "Contacto"],
+  "hero": {
+    "title": "DESARROLLO TERRITORIAL REGENERATIVO DESDE Y HACIA LATINOAMÉRICA",
+    "desc": "Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa.",
+    "ctaPrimary": "Conoce Nuestros Servicios",
+    "ctaSecondary": "Descarga Guía Gratuita",
+    "stats": [
+      {"value": "1,200+", "label": "Personas Beneficiadas"},
+      {"value": "25+", "label": "Comunidades Atendidas"},
+      {"value": "15+", "label": "Proyectos Exitosos"},
+      {"value": "98%", "label": "Satisfacción"}
+    ]
+  },
+  "about": {
+    "title": "¿Por qué Sueño Andino?",
+    "desc": "Transformamos territorios combinando sabiduría ancestral con innovación moderna.",
+    "cards": [
+      {"title": "¿Por qué lo hacemos?", "text": "Oportunidades equitativas"},
+      {"title": "¿Cómo lo hacemos?", "text": "Enfoque participativo"},
+      {"title": "¿Qué hacemos?", "text": "Programas educativos"},
+      {"title": "¿Para quién?", "text": "Comunidades andinas, empresas y gobiernos"}
+    ]
+  },
+  "services": {
+    "title": "Transformamos Comunidades",
+    "items": ["Educación Regenerativa", "Emprendimiento Social", "Consultoría Territorial"]
+  },
+  "cases": {
+    "title": "Impacto Real",
+    "items": [
+      {"metric": "1,200+ Personas Beneficiadas", "quote": "\"Nuestro territorio volvió a latir.\"", "author": "María Quispe, Huancavelica"},
+      {"metric": "25+ Comunidades Atendidas", "quote": "\"Acompañamiento real, con resultados.\"", "author": "Carlos Mamani, Puno"},
+      {"metric": "98% Satisfacción", "quote": "\"El enfoque regenerativo marca la diferencia.\"", "author": "Ana Condori, Cusco"}
+    ]
+  },
+  "contact": {
+    "title": "Trabajemos Juntos",
+    "info": {"city": "Lima, Perú", "phone": "+51-999-888-777", "email": "hola@sueñoandino.com"}
+  },
+  "footer": {
+    "mini": "Organización para el desarrollo territorial regenerativo",
+    "copyright": "© 2024"
+  }
+}

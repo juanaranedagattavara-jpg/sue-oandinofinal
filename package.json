@@ -1,39 +1,32 @@
 {
-  "name": "sueño-andino",
-  "version": "1.0.0",
-  "description": "Proyecto completo de Sueño Andino - HTML estático y tema WordPress",
-  "main": "index.html",
+  "name": "sueño-andino-export-elite",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "python -m http.server 3000",
-    "start-php": "php -S localhost:8000",
-    "build": "echo 'No build process needed for static HTML'",
-    "test": "echo 'No tests configured'",
-    "serve": "python -m http.server 3000"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [
-    "sueño-andino",
-    "wordpress",
-    "gutenberg",
-    "html",
-    "css",
-    "javascript",
-    "responsive",
-    "seo"
-  ],
-  "author": "Sueño Andino",
-  "license": "UNLICENSED",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/juanaranedagattavara-jpg/sue-oandino.git"
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "next": "14.0.4",
+    "postcss": "^8",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   },
-  "bugs": {
-    "url": "https://github.com/juanaranedagattavara-jpg/sue-oandino/issues"
-  },
-  "homepage": "https://sueñoandino.com",
-  "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
-  },
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  }
 }

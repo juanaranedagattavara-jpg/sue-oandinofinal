@@ -1,54 +1,36 @@
-# Archivos del sistema
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
-Thumbs.db
-*.tmp
-*.temp
+*.pem
 
-# Logs
-*.log
-error.log
-access.log
-
-# Cache
-cache/
-*.cache
-
-# Node modules (si se usa)
-node_modules/
+# debug
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Archivos de backup
-*.bak
-*.backup
-*~
+# local env files
+.env*.local
 
-# Archivos de configuración local
-.env
-.env.local
-config.local.php
+# vercel
+.vercel
 
-# Archivos de IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Archivos de WordPress
-wp-config.php
-wp-content/uploads/
-wp-content/cache/
-wp-content/backup-db/
-wp-content/backups/
-
-# Archivos de compilación
-*.min.js
-*.min.css
-dist/
-build/
-
-# Archivos de testing
-coverage/
-.nyc_output/
-
-# Archivos de documentación generados
-docs/_build/
+# typescript
+*.tsbuildinfo
+next-env.d.ts
