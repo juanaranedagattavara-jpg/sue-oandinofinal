@@ -1,10 +1,14 @@
 import Container from '../../components/Container'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import Link from 'next/link'
 
 export default function AvisoLegal() {
   return (
-    <main className="min-h-screen bg-sa-cloud">
-      <Container>
+    <main className="min-h-screen">
+      <Header />
+      <div className="bg-sa-cloud">
+        <Container>
         <div className="max-w-4xl mx-auto py-16">
           <div className="bg-white rounded-2xl p-8 shadow-sm">
             <h1 className="text-3xl md:text-4xl font-bold text-sa-ink mb-8">
@@ -107,7 +111,9 @@ export default function AvisoLegal() {
             </div>
           </div>
         </div>
-      </Container>
+        </Container>
+      </div>
+      <Footer />
     </main>
   )
 }

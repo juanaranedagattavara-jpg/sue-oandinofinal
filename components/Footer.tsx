@@ -78,6 +78,12 @@ export default function Footer() {
                 >
                   Aviso Legal
                 </Link>
+                <Link 
+                  href="/politica-cookies" 
+                  className="text-white/60 hover:text-white transition-colors"
+                >
+                  Política de Cookies
+                </Link>
               </div>
             </div>
           </div>
