@@ -96,6 +96,25 @@ export default function Timeline() {
             </div>
           </div>
 
+          {/* Newsletter CTA */}
+          <div className="mt-12 text-center">
+            <div className="bg-white rounded-xl p-6 max-w-sm mx-auto shadow-sm border border-gray-100">
+              <h3 className="text-lg font-semibold text-sa-ink mb-4">
+                Mantente al día
+              </h3>
+              <div className="space-y-3">
+                <input 
+                  type="email" 
+                  placeholder="Tu correo electrónico"
+                  className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-1 focus:ring-sa-primary focus:border-sa-primary outline-none"
+                />
+                <button className="w-full bg-sa-primary text-white px-4 py-2 text-sm font-medium rounded-lg hover:bg-sa-primary/90 transition-colors duration-200">
+                  Suscribirse a newsletter
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </Container>
     </section>
