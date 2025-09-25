@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Button from './Button'
 import GuideModal from './GuideModal'
 import useGuideModal from '../hooks/useGuideModal'
 
@@ -47,14 +46,11 @@ export default function Navigation({ isMobile = false, onItemClick }: Navigation
         openModal()
         onItemClick?.()
       }}
-      className={isMobile ? 'w-full text-center' : ''}
+      className={`border-2 border-sa-primary text-sa-primary hover:bg-sa-primary hover:text-white focus:ring-sa-primary disabled:opacity-50 disabled:cursor-not-allowed font-semibold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 px-6 py-3 ${
+        isMobile ? 'w-full text-center' : ''
+      }`}
     >
-      <Button
-        variant="secondary"
-        className={isMobile ? 'w-full text-center' : ''}
-      >
-        Descarga Guía Gratuita
-      </Button>
+      Descarga Guía Gratuita
     </button>
   )
 

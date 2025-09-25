@@ -8,9 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "diagnose": "node scripts/diagnose.js",
+    "prevent-errors": "node scripts/prevent-module-errors.js",
+    "prevent-hydration": "node scripts/prevent-hydration-errors.js",
     "reset-server": "node scripts/reset-server.js",
-    "safe-dev": "npm run diagnose && npm run dev",
-    "safe-build": "npm run diagnose && npm run build",
+    "safe-dev": "npm run prevent-hydration && npm run prevent-errors && npm run dev",
+    "safe-build": "npm run prevent-hydration && npm run diagnose && npm run build",
     "emergency-reset": "npm run reset-server && npm run safe-dev",
     "qa": "node scripts/qa-express.js",
     "qa:full": "npm run build && npm run lint && npm run qa"
