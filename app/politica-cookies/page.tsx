@@ -109,10 +109,10 @@ export default function PoliticaCookies() {
                   <div className="mt-4 p-4 bg-blue-50 rounded-lg">
                     <h4 className="font-semibold text-sa-ink mb-2">Configuración por Navegador:</h4>
                     <ul className="list-disc pl-6 text-sm">
-                      <li><strong>Chrome:</strong> Configuración > Privacidad y seguridad > Cookies</li>
-                      <li><strong>Firefox:</strong> Opciones > Privacidad y seguridad > Cookies</li>
-                      <li><strong>Safari:</strong> Preferencias > Privacidad > Cookies</li>
-                      <li><strong>Edge:</strong> Configuración > Cookies y permisos de sitio</li>
+                      <li><strong>Chrome:</strong> Configuración &gt; Privacidad y seguridad &gt; Cookies</li>
+                      <li><strong>Firefox:</strong> Opciones &gt; Privacidad y seguridad &gt; Cookies</li>
+                      <li><strong>Safari:</strong> Preferencias &gt; Privacidad &gt; Cookies</li>
+                      <li><strong>Edge:</strong> Configuración &gt; Cookies y permisos de sitio</li>
                     </ul>
                   </div>
                 </section>

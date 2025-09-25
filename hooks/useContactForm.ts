@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 
 interface FormData {
   name: string
@@ -12,7 +12,7 @@ type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
 /**
  * Hook personalizado para manejar el formulario de contacto
- * Incluye validación, envío y manejo de estados
+ * Incluye validación, envío y manejo de estados optimizado
  */
 export function useContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -23,15 +23,15 @@ export function useContactForm() {
   const [status, setStatus] = useState<FormStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
       [name]: value
     }))
-  }
+  }, [])
 
-  const validateForm = (): boolean => {
+  const validateForm = useCallback((): boolean => {
     if (!formData.name.trim()) {
       setErrorMessage('El nombre es requerido')
       return false
@@ -50,9 +50,9 @@ export function useContactForm() {
       return false
     }
     return true
-  }
+  }, [formData])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
     
     if (!validateForm()) {
@@ -86,13 +86,17 @@ export function useContactForm() {
       setErrorMessage('Error de conexión. Intenta nuevamente.')
       console.error('Error en formulario de contacto:', error)
     }
-  }
+  }, [formData, validateForm])
 
-  const resetForm = () => {
+  const resetForm = useCallback(() => {
     setFormData({ name: '', email: '', message: '' })
     setStatus('idle')
     setErrorMessage('')
-  }
+  }, [])
+
+  const isFormValid = useMemo(() => {
+    return formData.name.trim() && formData.email.trim() && formData.message.trim()
+  }, [formData])
 
   return {
     formData,
@@ -100,6 +104,7 @@ export function useContactForm() {
     errorMessage,
     handleChange,
     handleSubmit,
-    resetForm
+    resetForm,
+    isFormValid
   }
 }

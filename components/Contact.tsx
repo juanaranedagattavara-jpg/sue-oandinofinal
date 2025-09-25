@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo } from 'react'
 import Container from './Container'
 import Button from './Button'
 import Icon from './Icon'
@@ -19,6 +20,12 @@ export default function Contact() {
     handleSubmit
   } = useContactForm()
 
+  const contactInfo = useMemo(() => [
+    { icon: 'location', label: 'Ubicación', value: homeData.contact.info.city },
+    { icon: 'phone', label: 'Teléfono', value: homeData.contact.info.phone },
+    { icon: 'email', label: 'Email', value: homeData.contact.info.email }
+  ], [])
+
   return (
     <section id="contacto" className="bg-sa-primary text-white section-padding">
       <Container>
@@ -34,11 +41,7 @@ export default function Contact() {
               </p>
               
               <div className="space-y-6">
-                {[
-                  { icon: 'location', label: 'Ubicación', value: homeData.contact.info.city },
-                  { icon: 'phone', label: 'Teléfono', value: homeData.contact.info.phone },
-                  { icon: 'email', label: 'Email', value: homeData.contact.info.email }
-                ].map((item, index) => (
+                {contactInfo.map((item, index) => (
                   <div key={index} className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
                       <Icon name={item.icon as any} className="w-6 h-6" />

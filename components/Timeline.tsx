@@ -1,3 +1,6 @@
+'use client'
+
+import { useMemo } from 'react'
 import Container from './Container'
 
 /**
@@ -5,7 +8,7 @@ import Container from './Container'
  * Muestra la evolución y hitos del proyecto Sueño Andino
  */
 export default function Timeline() {
-  const timelineData = [
+  const timelineData = useMemo(() => [
     {
       year: '2020',
       title: 'Fundación',
@@ -36,7 +39,7 @@ export default function Timeline() {
       description: 'Continuamos expandiendo nuestro impacto.',
       icon: '🚀'
     }
-  ]
+  ], [])
 
   return (
     <section id="timeline" className="bg-sa-cloud py-12 md:py-16">

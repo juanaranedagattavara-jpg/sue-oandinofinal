@@ -7,16 +7,45 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   body {
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.6;
+    text-rendering: optimizeLegibility;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  /* Optimización de imágenes */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mejoras de accesibilidad */
+  :focus-visible {
+    outline: 2px solid #0E5E6F;
+    outline-offset: 2px;
+  }
+
+  /* Optimización de scroll */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
@@ -27,5 +56,37 @@
   
   .container-custom {
     @apply max-w-8xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Componentes optimizados */
+  .btn-primary {
+    @apply bg-sa-primary text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-sa-primary/90 focus:outline-none focus:ring-2 focus:ring-sa-primary focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-sa-accent text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-sa-accent/90 focus:outline-none focus:ring-2 focus:ring-sa-accent focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sa-primary focus:border-transparent text-sa-ink transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
