@@ -8,8 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "diagnose": "node scripts/diagnose.js",
+    "reset-server": "node scripts/reset-server.js",
     "safe-dev": "npm run diagnose && npm run dev",
     "safe-build": "npm run diagnose && npm run build",
+    "emergency-reset": "npm run reset-server && npm run safe-dev",
     "qa": "node scripts/qa-express.js",
     "qa:full": "npm run build && npm run lint && npm run qa"
   },

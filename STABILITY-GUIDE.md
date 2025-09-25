@@ -68,6 +68,17 @@ Si ves estos errores, la página se va a romper:
 
 Si la página se rompe:
 
+### Opción 1: Reset de Emergencia (Recomendado)
+```bash
+npm run emergency-reset
+```
+
+### Opción 2: Manual
+1. **Detener servidor**: `Ctrl+C`
+2. **Reset completo**: `npm run reset-server`
+3. **Reiniciar**: `npm run safe-dev`
+
+### Opción 3: Básica
 1. **Detener servidor**: `Ctrl+C`
 2. **Limpiar caché**: `Remove-Item -Recurse -Force .next`
 3. **Diagnosticar**: `npm run diagnose`
