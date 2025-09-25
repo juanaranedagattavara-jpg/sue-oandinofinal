@@ -59,40 +59,27 @@ export default function Timeline() {
 
             {/* Items del timeline */}
             <div className="space-y-8">
-              {timelineData.map((item, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center ${
-                    index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                  }`}
-                >
-                  {/* Contenido */}
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-6 text-right' : 'pl-6 text-left'}`}>
-                    <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xl">{item.icon}</span>
-                        <span className="text-lg font-bold text-sa-primary">
-                          {item.year}
-                        </span>
+              {timelineData.map((item, index) => {
+                const isEven = index % 2 === 0
+                return (
+                  <div key={index} className={`flex items-center ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
+                    <div className={`w-1/2 ${isEven ? 'pr-6 text-right' : 'pl-6 text-left'}`}>
+                      <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-xl">{item.icon}</span>
+                          <span className="text-lg font-bold text-sa-primary">{item.year}</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-sa-ink mb-1">{item.title}</h3>
+                        <p className="text-sm text-sa-ink/80">{item.description}</p>
                       </div>
-                      <h3 className="text-lg font-bold text-sa-ink mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-sa-ink/80">
-                        {item.description}
-                      </p>
                     </div>
+                    <div className="relative z-10 flex-shrink-0 w-6 h-6 bg-sa-primary rounded-full border-3 border-white shadow-md flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div className="w-1/2"></div>
                   </div>
-
-                  {/* Punto central */}
-                  <div className="relative z-10 flex-shrink-0 w-6 h-6 bg-sa-primary rounded-full border-3 border-white shadow-md flex items-center justify-center">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-
-                  {/* Espacio vacío para el lado opuesto */}
-                  <div className="w-1/2"></div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 

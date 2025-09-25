@@ -54,8 +54,32 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
-            <p>{homeData.footer.copyright} Sueño Andino. Todos los derechos reservados.</p>
+          <div className="border-t border-white/20 mt-8 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="text-white/60">
+                {homeData.footer.copyright} Sueño Andino. Todos los derechos reservados.
+              </p>
+              <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
+                <Link 
+                  href="/politica-privacidad" 
+                  className="text-white/60 hover:text-white transition-colors"
+                >
+                  Política de Privacidad
+                </Link>
+                <Link 
+                  href="/terminos-condiciones" 
+                  className="text-white/60 hover:text-white transition-colors"
+                >
+                  Términos y Condiciones
+                </Link>
+                <Link 
+                  href="/aviso-legal" 
+                  className="text-white/60 hover:text-white transition-colors"
+                >
+                  Aviso Legal
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </Container>

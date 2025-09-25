@@ -34,35 +34,21 @@ export default function Contact() {
               </p>
               
               <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
-                    <Icon name="location" className="w-6 h-6" />
+                {[
+                  { icon: 'location', label: 'Ubicación', value: homeData.contact.info.city },
+                  { icon: 'phone', label: 'Teléfono', value: homeData.contact.info.phone },
+                  { icon: 'email', label: 'Email', value: homeData.contact.info.email }
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
+                      <Icon name={item.icon as any} className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="font-semibold">{item.label}</div>
+                      <div className="text-white/80">{item.value}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold">Ubicación</div>
-                    <div className="text-white/80">{homeData.contact.info.city}</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
-                    <Icon name="phone" className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">Teléfono</div>
-                    <div className="text-white/80">{homeData.contact.info.phone}</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
-                    <Icon name="email" className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">Email</div>
-                    <div className="text-white/80">{homeData.contact.info.email}</div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
