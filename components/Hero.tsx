@@ -1,9 +1,13 @@
-import Link from 'next/link'
+'use client'
+
 import Container from './Container'
 import Button from './Button'
+import GuideModal from './GuideModal'
+import useGuideModal from '../hooks/useGuideModal'
 import homeData from '../content/home.json'
 
 export default function Hero() {
+  const { isOpen, openModal, closeModal } = useGuideModal()
   return (
     <section className="bg-gradient-to-br from-sa-cloud to-white section-padding">
       <Container>
@@ -22,11 +26,11 @@ export default function Hero() {
                 {homeData.hero.ctaPrimary}
               </Button>
             </a>
-            <Link href="/guide">
+            <button onClick={openModal}>
               <Button variant="secondary" size="lg">
                 {homeData.hero.ctaSecondary}
               </Button>
-            </Link>
+            </button>
           </div>
           
           {/* Stats Grid */}
@@ -44,6 +48,7 @@ export default function Hero() {
           </div>
         </div>
       </Container>
+      <GuideModal isOpen={isOpen} onClose={closeModal} />
     </section>
   )
 }
