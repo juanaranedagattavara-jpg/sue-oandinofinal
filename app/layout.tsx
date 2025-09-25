@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import homeData from '../content/home.json'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,14 +11,14 @@ export const metadata: Metadata = {
   authors: [{ name: 'Sueño Andino' }],
   openGraph: {
     title: 'Sueño Andino - Desarrollo Territorial Regenerativo',
-    description: homeData.hero.desc,
+    description: 'Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa.',
     type: 'website',
     locale: 'es_PE',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Sueño Andino - Desarrollo Territorial Regenerativo',
-    description: homeData.hero.desc,
+    description: 'Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa.',
   },
   robots: {
     index: true,
