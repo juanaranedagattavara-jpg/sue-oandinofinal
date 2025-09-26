@@ -1,5 +1,5 @@
-import Container from './Container'
-import homeData from '../content/home.json'
+import Container from './Container';
+import homeData from '../content/home.json';
 
 export default function About() {
   return (
@@ -14,21 +14,22 @@ export default function About() {
               {homeData.about.desc}
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {homeData.about.cards.map((card, index) => (
-              <div key={index} className="bg-sa-cloud rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-sa-cloud rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+              >
                 <h3 className="text-xl font-bold text-sa-ink mb-4">
                   {card.title}
                 </h3>
-                <p className="text-sa-ink/80 text-lg">
-                  {card.text}
-                </p>
+                <p className="text-sa-ink/80 text-lg">{card.text}</p>
               </div>
             ))}
           </div>
         </div>
       </Container>
     </section>
-  )
+  );
 }

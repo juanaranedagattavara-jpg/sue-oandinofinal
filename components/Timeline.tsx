@@ -1,4 +1,4 @@
-import Container from './Container'
+import Container from './Container';
 
 /**
  * Componente Timeline con diseño elegante
@@ -10,33 +10,33 @@ export default function Timeline() {
       year: '2020',
       title: 'Fundación',
       description: 'Nacimiento con visión de transformar territorios.',
-      icon: '🌱'
+      icon: '🌱',
     },
     {
       year: '2021',
       title: 'Primeros Proyectos',
       description: 'Programas de educación regenerativa.',
-      icon: '🎓'
+      icon: '🎓',
     },
     {
       year: '2022',
       title: 'Expansión',
       description: '15+ comunidades atendidas.',
-      icon: '🗺️'
+      icon: '🗺️',
     },
     {
       year: '2023',
       title: 'Impacto',
       description: '1,200+ personas beneficiadas.',
-      icon: '📊'
+      icon: '📊',
     },
     {
       year: '2024',
       title: 'Futuro',
       description: 'Continuamos expandiendo nuestro impacto.',
-      icon: '🚀'
-    }
-  ]
+      icon: '🚀',
+    },
+  ];
 
   return (
     <section id="timeline" className="bg-sa-cloud py-12 md:py-16">
@@ -67,7 +67,11 @@ export default function Timeline() {
                   }`}
                 >
                   {/* Contenido */}
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-6 text-right' : 'pl-6 text-left'}`}>
+                  <div
+                    className={`w-1/2 ${
+                      index % 2 === 0 ? 'pr-6 text-right' : 'pl-6 text-left'
+                    }`}
+                  >
                     <div className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-xl">{item.icon}</span>
@@ -103,8 +107,8 @@ export default function Timeline() {
                 Mantente al día
               </h3>
               <div className="space-y-3">
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   placeholder="Tu correo electrónico"
                   className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-1 focus:ring-sa-primary focus:border-sa-primary outline-none"
                 />
@@ -114,9 +118,8 @@ export default function Timeline() {
               </div>
             </div>
           </div>
-
         </div>
       </Container>
     </section>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import Container from './Container'
-import homeData from '../content/home.json'
+import Link from 'next/link';
+import Container from './Container';
+import homeData from '../content/home.json';
 
 export default function Footer() {
   return (
@@ -55,10 +55,13 @@ export default function Footer() {
           </div>
 
           <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
-            <p>{homeData.footer.copyright} Sueño Andino. Todos los derechos reservados.</p>
+            <p>
+              {homeData.footer.copyright} Sueño Andino. Todos los derechos
+              reservados.
+            </p>
           </div>
         </div>
       </Container>
     </footer>
-  )
+  );
 }

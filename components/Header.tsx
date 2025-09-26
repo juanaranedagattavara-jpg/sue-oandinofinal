@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import Container from './Container'
-import Navigation from './Navigation'
-import Icon from './Icon'
-import { useMobileMenu } from '../hooks/useMobileMenu'
+import Link from 'next/link';
+import Container from './Container';
+import Navigation from './Navigation';
+import Icon from './Icon';
+import { useMobileMenu } from '../hooks/useMobileMenu';
 
 /**
  * Header principal con navegación responsive
  * Incluye logo, menú desktop/móvil y CTA
  */
 export default function Header() {
-  const { isMenuOpen, toggleMenu, closeMenu } = useMobileMenu()
+  const { isMenuOpen, toggleMenu, closeMenu } = useMobileMenu();
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -49,5 +49,5 @@ export default function Header() {
         )}
       </Container>
     </header>
-  )
+  );
 }

@@ -1,23 +1,18 @@
-'use client'
+'use client';
 
-import Container from './Container'
-import Button from './Button'
-import Icon from './Icon'
-import { useContactForm } from '../hooks/useContactForm'
-import homeData from '../content/home.json'
+import Container from './Container';
+import Button from './Button';
+import Icon from './Icon';
+import { useContactForm } from '../hooks/useContactForm';
+import homeData from '../content/home.json';
 
 /**
  * Componente de contacto con formulario y información
  * Incluye validación, manejo de estados y feedback visual
  */
 export default function Contact() {
-  const {
-    formData,
-    status,
-    errorMessage,
-    handleChange,
-    handleSubmit
-  } = useContactForm()
+  const { formData, status, errorMessage, handleChange, handleSubmit } =
+    useContactForm();
 
   return (
     <section id="contacto" className="bg-sa-primary text-white section-padding">
@@ -30,9 +25,10 @@ export default function Contact() {
                 {homeData.contact.title}
               </h2>
               <p className="text-xl text-white/80 mb-8">
-                ¿Tienes un proyecto en mente? Conversemos sobre cómo podemos trabajar juntos para transformar tu territorio.
+                ¿Tienes un proyecto en mente? Conversemos sobre cómo podemos
+                trabajar juntos para transformar tu territorio.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
@@ -40,27 +36,33 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="font-semibold">Ubicación</div>
-                    <div className="text-white/80">{homeData.contact.info.city}</div>
+                    <div className="text-white/80">
+                      {homeData.contact.info.city}
+                    </div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
                     <Icon name="phone" className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-semibold">Teléfono</div>
-                    <div className="text-white/80">{homeData.contact.info.phone}</div>
+                    <div className="text-white/80">
+                      {homeData.contact.info.phone}
+                    </div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-sa-accent rounded-lg flex items-center justify-center">
                     <Icon name="email" className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div className="text-white/80">{homeData.contact.info.email}</div>
+                    <div className="text-white/80">
+                      {homeData.contact.info.email}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -70,7 +72,10 @@ export default function Contact() {
             <div className="bg-white rounded-2xl p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-sa-ink mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-sa-ink mb-2"
+                  >
                     Nombre completo *
                   </label>
                   <input
@@ -84,9 +89,12 @@ export default function Contact() {
                     placeholder="Tu nombre completo"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-sa-ink mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-sa-ink mb-2"
+                  >
                     Email *
                   </label>
                   <input
@@ -100,9 +108,12 @@ export default function Contact() {
                     placeholder="tu@email.com"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-sa-ink mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-sa-ink mb-2"
+                  >
                     Mensaje *
                   </label>
                   <textarea
@@ -116,19 +127,17 @@ export default function Contact() {
                     placeholder="Cuéntanos sobre tu proyecto..."
                   />
                 </div>
-                
+
                 {status === 'error' && (
-                  <div className="text-red-600 text-sm">
-                    {errorMessage}
-                  </div>
+                  <div className="text-red-600 text-sm">{errorMessage}</div>
                 )}
-                
+
                 {status === 'success' && (
                   <div className="text-green-600 text-sm">
                     ¡Mensaje enviado correctamente! Te contactaremos pronto.
                   </div>
                 )}
-                
+
                 <Button
                   type="submit"
                   variant="primary"
@@ -143,5 +152,5 @@ export default function Contact() {
         </div>
       </Container>
     </section>
-  )
+  );
 }
