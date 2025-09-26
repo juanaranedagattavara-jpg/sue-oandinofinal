@@ -1,4 +1,4 @@
-import Container from './Container'
+import Container from './Container';
 
 /**
  * Componente Team con directorio y equipo
@@ -6,22 +6,50 @@ import Container from './Container'
  */
 export default function Team() {
   const team = {
-    title: "Nuestro Equipo",
-    subtitle: "Conoce a las personas que hacen posible nuestro impacto",
+    title: 'Nuestro Equipo',
+    subtitle: 'Conoce a las personas que hacen posible nuestro impacto',
     directorio: [
-      {"name": "María Elena Quispe", "title": "Directora Ejecutiva", "initials": "MQ"},
-      {"name": "Carlos Mamani", "title": "Director de Programas", "initials": "CM"},
-      {"name": "Ana Condori", "title": "Coordinadora de Educación", "initials": "AC"},
-      {"name": "Roberto Huamán", "title": "Especialista en Desarrollo Territorial", "initials": "RH"},
-      {"name": "Lucía Vargas", "title": "Coordinadora de Comunidades", "initials": "LV"},
-      {"name": "Diego Paredes", "title": "Director de Finanzas", "initials": "DP"}
+      {
+        name: 'María Elena Quispe',
+        title: 'Directora Ejecutiva',
+        initials: 'MQ',
+      },
+      { name: 'Carlos Mamani', title: 'Director de Programas', initials: 'CM' },
+      {
+        name: 'Ana Condori',
+        title: 'Coordinadora de Educación',
+        initials: 'AC',
+      },
+      {
+        name: 'Roberto Huamán',
+        title: 'Especialista en Desarrollo Territorial',
+        initials: 'RH',
+      },
+      {
+        name: 'Lucía Vargas',
+        title: 'Coordinadora de Comunidades',
+        initials: 'LV',
+      },
+      { name: 'Diego Paredes', title: 'Director de Finanzas', initials: 'DP' },
     ],
     equipo: [
-      {"name": "Sofia Mendoza", "title": "Coordinadora de Proyectos", "initials": "SM"},
-      {"name": "Miguel Torres", "title": "Facilitador Comunitario", "initials": "MT"},
-      {"name": "Elena Rojas", "title": "Especialista en Sostenibilidad", "initials": "ER"}
-    ]
-  }
+      {
+        name: 'Sofia Mendoza',
+        title: 'Coordinadora de Proyectos',
+        initials: 'SM',
+      },
+      {
+        name: 'Miguel Torres',
+        title: 'Facilitador Comunitario',
+        initials: 'MT',
+      },
+      {
+        name: 'Elena Rojas',
+        title: 'Especialista en Sostenibilidad',
+        initials: 'ER',
+      },
+    ],
+  };
 
   return (
     <section id="equipo" className="bg-white section-padding">
@@ -55,16 +83,14 @@ export default function Team() {
                   <h4 className="text-lg font-bold text-sa-ink mb-2">
                     {person.name}
                   </h4>
-                  <p className="text-sm text-sa-ink/70">
-                    {person.title}
-                  </p>
+                  <p className="text-sm text-sa-ink/70">{person.title}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Equipo */}
-          <div>
+          <div className="mb-16">
             <h3 className="text-2xl font-bold text-sa-ink mb-8 text-center">
               Equipo
             </h3>
@@ -81,15 +107,30 @@ export default function Team() {
                   <h4 className="text-xl font-bold text-sa-ink mb-3">
                     {person.name}
                   </h4>
-                  <p className="text-sa-ink/70">
-                    {person.title}
-                  </p>
+                  <p className="text-sa-ink/70">{person.title}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Propósito */}
+          <div className="bg-sa-cloud/50 rounded-2xl p-8 md:p-12">
+            <h3 className="text-3xl font-bold text-sa-ink mb-6 text-center">
+              Propósito
+            </h3>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg text-sa-ink/80 leading-relaxed text-center">
+                Nuestro propósito es transformar territorios andinos a través
+                del desarrollo regenerativo, combinando sabiduría ancestral con
+                innovación moderna. Trabajamos para crear un futuro donde las
+                comunidades prosperen en armonía con su entorno, generando
+                oportunidades equitativas y sostenibles que honren la herencia
+                cultural y natural de los Andes.
+              </p>
             </div>
           </div>
         </div>
       </Container>
     </section>
-  )
+  );
 }
