@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { validateApiContact } from '@/lib/validations'
+import { validateApiGuide } from '@/lib/validations'
 
 /**
- * API de contacto con validación de seguridad robusta
+ * API de lead magnet (guía gratuita) con validación de seguridad robusta
  * Protege contra XSS, inyección, spam y ataques comunes
  */
 
@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     // Parsear y validar datos con Zod
     const body = await request.json()
-    const validation = validateApiContact(body)
+    const validation = validateApiGuide(body)
 
     if (!validation.success) {
       return NextResponse.json(
@@ -31,27 +31,27 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { name, email, message } = validation.data!
+    const { name, email } = validation.data!
 
     // Log estructurado para monitoreo (sin datos sensibles)
-    console.log('Nuevo mensaje de contacto:', {
+    console.log('Nueva suscripción a guía:', {
       timestamp: new Date().toISOString(),
       ip: request.headers.get('x-forwarded-for') || 'unknown',
       userAgent: request.headers.get('user-agent') || 'unknown',
       nameLength: name.length,
-      emailDomain: email.split('@')[1],
-      messageLength: message.length
+      emailDomain: email.split('@')[1]
     })
 
-    // Simular envío de email (en producción usar sendEmail)
-    // TODO: Implementar envío real de email con sendEmail()
+    // Simular suscripción (en producción integrar con servicio de email)
+    // TODO: Implementar suscripción real con servicio de email marketing
     
-    // En producción, descomentar esta línea:
-    // await sendEmail({ name, email, message })
+    // En producción, descomentar estas líneas:
+    // await subscribeToNewsletter({ name, email })
+    // await sendWelcomeEmail({ name, email })
 
     return NextResponse.json(
       { 
-        message: 'Mensaje enviado correctamente',
+        message: '¡Gracias por tu interés! Te enviaremos la guía pronto.',
         timestamp: new Date().toISOString()
       },
       { 
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
     )
   } catch (error) {
     // Log de error sin exponer detalles internos
-    console.error('Error en API de contacto:', {
+    console.error('Error en API de guía:', {
       timestamp: new Date().toISOString(),
       error: error instanceof Error ? error.message : 'Unknown error',
       stack: error instanceof Error ? error.stack : undefined

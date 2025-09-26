@@ -12,6 +12,8 @@ Landing corporativa premium para desarrollo territorial regenerativo construida 
 - **Diseño accesible** y mobile-first
 - **SEO optimizado** con metadata dinámica
 - **Exportación Gutenberg** para WordPress
+- **🛡️ Seguridad robusta** con headers, validación y rate limiting
+- **🔒 Protección OWASP** contra XSS, CSRF e inyección
 
 ## 🎨 Tokens de Diseño
 
@@ -135,6 +137,29 @@ Los archivos en `exports/` contienen HTML nativo con comentarios Gutenberg:
 4. WordPress convertirá automáticamente a bloques nativos
 5. Guarda como "Patrón" para reutilizar
 
+## 🛡️ Seguridad
+
+El proyecto implementa medidas de seguridad robustas siguiendo OWASP Top 10:
+
+### Headers de Seguridad
+- **CSP**: Content Security Policy estricto
+- **X-Frame-Options**: Previene clickjacking
+- **X-Content-Type-Options**: Previene MIME sniffing
+- **Referrer-Policy**: Control de referrer
+
+### Validación y Sanitización
+- **Zod Schemas**: Validación robusta de formularios
+- **XSS Protection**: Sanitización en tiempo real
+- **Input Validation**: Límites de longitud y patrones
+- **Rate Limiting**: Protección contra spam
+
+### Monitoreo
+- **Logging Seguro**: Sin datos sensibles
+- **Auditoría Automática**: Scripts de verificación
+- **CI/CD Seguro**: Pipeline con checks de seguridad
+
+Ver [SECURITY.md](./SECURITY.md) para detalles completos.
+
 ## 🎯 Optimización Lighthouse
 
 El proyecto está optimizado para Lighthouse ≥ 95:
@@ -154,10 +179,21 @@ El proyecto está optimizado para Lighthouse ≥ 95:
 ## 🔧 Scripts Disponibles
 
 ```bash
+# Desarrollo
 npm run dev      # Servidor de desarrollo
 npm run build    # Build de producción
 npm run start    # Servidor de producción
 npm run lint     # Linting con ESLint
+
+# Seguridad
+npm run security:audit    # Auditoría de seguridad completa
+npm run security:check    # Verificar vulnerabilidades
+npm run security:fix      # Corregir vulnerabilidades automáticamente
+npm run security:full     # Verificación completa de seguridad
+
+# QA
+npm run qa       # QA Express
+npm run qa:full  # QA completo (build + lint + qa)
 ```
 
 ## 📊 Métricas de Build
