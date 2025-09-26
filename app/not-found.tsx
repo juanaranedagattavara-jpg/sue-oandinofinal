@@ -1,30 +1,15 @@
-import Link from 'next/link'
-import Container from '../components/Container'
+import Link from 'next/link';
 
-/**
- * Página 404 - Not Found
- * Se muestra cuando una ruta no existe
- */
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-sa-cloud flex items-center justify-center">
-      <Container>
-        <div className="text-center">
-          <h1 className="text-6xl font-bold text-sa-primary mb-4">404</h1>
-          <h2 className="text-2xl font-semibold text-sa-ink mb-4">
-            Página no encontrada
-          </h2>
-          <p className="text-sa-ink/80 mb-8 max-w-md mx-auto">
-            La página que buscas no existe o ha sido movida.
-          </p>
-          <Link
-            href="/"
-            className="btn-primary inline-block"
-          >
-            Volver al inicio
-          </Link>
-        </div>
-      </Container>
+    <div className="min-h-screen flex items-center justify-center bg-sa-cloud">
+      <div className="text-center">
+        <h1 className="text-6xl font-bold text-sa-primary mb-4">404</h1>
+        <p className="text-xl text-sa-ink/80 mb-8">Página no encontrada</p>
+        <Link href="/" className="bg-sa-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-sa-primary/90 transition-colors">
+          Volver al inicio
+        </Link>
+      </div>
     </div>
-  )
+  );
 }

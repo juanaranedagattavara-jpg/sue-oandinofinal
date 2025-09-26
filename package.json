@@ -6,14 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "qa": "node scripts/qa-express.js",
-    "qa:full": "npm run build && npm run lint && npm run qa",
-    "security:audit": "node scripts/security-audit.js",
-    "security:check": "npm audit --audit-level=high",
-    "security:fix": "npm audit fix",
-    "security:full": "npm run security:check && npm run security:audit",
-    "test:security": "npm run security:full && npm run build && npm run lint"
+    "lint": "next lint"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -21,7 +14,6 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "critters": "^0.0.23",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "next": "^15.5.4",
@@ -29,7 +21,6 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5",
-    "zod": "^4.1.11"
+    "typescript": "^5"
   }
 }

@@ -1,92 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { validateApiContact } from '@/lib/validations'
-
-/**
- * API de contacto con validación de seguridad robusta
- * Protege contra XSS, inyección, spam y ataques comunes
- */
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    // Verificar Content-Type
-    const contentType = request.headers.get('content-type')
-    if (!contentType || !contentType.includes('application/json')) {
-      return NextResponse.json(
-        { error: 'Content-Type debe ser application/json' },
-        { status: 400 }
-      )
-    }
-
-    // Parsear y validar datos con Zod
-    const body = await request.json()
-    const validation = validateApiContact(body)
-
-    if (!validation.success) {
-      return NextResponse.json(
-        { 
-          error: 'Datos de entrada inválidos',
-          details: validation.errors 
-        },
-        { status: 400 }
-      )
-    }
-
-    const { name, email, message } = validation.data!
-
-    // Log estructurado para monitoreo (sin datos sensibles)
-    console.log('Nuevo mensaje de contacto:', {
-      timestamp: new Date().toISOString(),
-      ip: request.headers.get('x-forwarded-for') || 'unknown',
-      userAgent: request.headers.get('user-agent') || 'unknown',
-      nameLength: name.length,
-      emailDomain: email.split('@')[1],
-      messageLength: message.length
-    })
-
-    // Simular envío de email (en producción usar sendEmail)
-    // TODO: Implementar envío real de email con sendEmail()
-    
-    // En producción, descomentar esta línea:
-    // await sendEmail({ name, email, message })
-
-    return NextResponse.json(
-      { 
-        message: 'Mensaje enviado correctamente',
-        timestamp: new Date().toISOString()
-      },
-      { 
-        status: 200,
-        headers: {
-          'Cache-Control': 'no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
-        }
-      }
-    )
-  } catch (error) {
-    // Log de error sin exponer detalles internos
-    console.error('Error en API de contacto:', {
-      timestamp: new Date().toISOString(),
-      error: error instanceof Error ? error.message : 'Unknown error',
-      stack: error instanceof Error ? error.stack : undefined
-    })
-
-    return NextResponse.json(
-      { error: 'Error interno del servidor' },
-      { 
-        status: 500,
-        headers: {
-          'Cache-Control': 'no-store, must-revalidate'
-        }
-      }
-    )
+    const { name, email, message } = await request.json();
+    if (!name || !email || !message) return NextResponse.json({ error: 'Campos requeridos' }, { status: 400 });
+    console.log('📧 Contacto:', { name, email, message, timestamp: new Date().toISOString() });
+    return NextResponse.json({ message: 'Enviado correctamente' }, { status: 200 });
+  } catch {
+    return NextResponse.json({ error: 'Error interno' }, { status: 500 });
   }
-}
-
-// Método no permitido
-export async function GET() {
-  return NextResponse.json(
-    { error: 'Método no permitido' },
-    { status: 405 }
-  )
 }
