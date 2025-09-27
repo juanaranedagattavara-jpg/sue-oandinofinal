@@ -1,0 +1,49 @@
+{
+  "name": "sueño-andino-wordpress-theme",
+  "version": "1.0.0",
+  "description": "Tema WordPress premium para desarrollo territorial regenerativo",
+  "main": "style.css",
+  "scripts": {
+    "install": "echo 'Tema instalado correctamente'",
+    "test": "echo 'Tema listo para usar'"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "gutenberg",
+    "responsive",
+    "corporate",
+    "landing-page",
+    "desarrollo-territorial",
+    "regenerativo"
+  ],
+  "author": "Sueño Andino",
+  "license": "GPL-2.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suenoandino/wordpress-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/suenoandino/wordpress-theme/issues"
+  },
+  "homepage": "https://suenoandino.com",
+  "engines": {
+    "wordpress": ">=5.0",
+    "php": ">=7.4"
+  },
+  "theme": {
+    "name": "Sueño Andino",
+    "slug": "sueño-andino",
+    "version": "1.0.0",
+    "description": "Tema premium para desarrollo territorial regenerativo",
+    "author": "Sueño Andino",
+    "author_uri": "https://suenoandino.com",
+    "license": "GPL-2.0-or-later",
+    "license_uri": "https://www.gnu.org/licenses/gpl-2.0.html",
+    "text_domain": "sueño-andino",
+    "domain_path": "/languages",
+    "requires_wp": "5.0",
+    "tested_up_to": "6.4",
+    "requires_php": "7.4"
+  }
+}

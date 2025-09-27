@@ -1,0 +1,48 @@
+{
+  "name": "sueño-andino/wordpress-theme",
+  "description": "Tema WordPress premium para desarrollo territorial regenerativo",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Sueño Andino",
+      "email": "hola@sueñoandino.com",
+      "homepage": "https://suenoandino.com"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "theme",
+    "gutenberg",
+    "responsive",
+    "corporate",
+    "landing-page"
+  ],
+  "homepage": "https://suenoandino.com",
+  "support": {
+    "email": "hola@sueñoandino.com",
+    "issues": "https://github.com/suenoandino/wordpress-theme/issues"
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "wp-coding-standards/wpcs": "^2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "SueñoAndino\\": "inc/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "cs": "phpcs --standard=WordPress .",
+    "cbf": "phpcbf --standard=WordPress ."
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
